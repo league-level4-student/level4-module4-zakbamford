@@ -32,9 +32,16 @@ public class PolymorphWindow extends JPanel implements ActionListener{
    	 window.pack();
    	 window.setVisible(true);
    	 
+   	 ClickMorph c = new ClickMorph(100, 400);
+   	 window.addMouseListener(c);
+   	 
    	 polys.add(new BluePolymorph(50, 50));
    	 polys.add(new RedMorph(200, 50));
    	 polys.add(new MovingMorph(50, 200));
+   	 polys.add(new CircleMorph(200, 100, 100));
+   	 polys.add(new MouseMorph(0, 0));
+   	 polys.add(new ImageMorph(200, 200));
+   	 polys.add(c);
    	 
    	 timer = new Timer(1000 / 30, this);
    	 timer.start();
