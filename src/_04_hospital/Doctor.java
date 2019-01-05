@@ -18,6 +18,7 @@ public class Doctor {
 	}
 
 	public void assignPatient(Patient p) throws DoctorFullException {
+		System.out.println("pats.size() = " + pats.size());
 		if (pats.size() < 3)
 			pats.add(p);
 		else

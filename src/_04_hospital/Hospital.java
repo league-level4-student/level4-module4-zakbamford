@@ -29,12 +29,27 @@ public class Hospital {
 	}
 
 	public void assignPatientsToDoctors() {
-		int j = 0;
-		for (int i = 0; i < docs.size(); i++)
-			try {
-				docs.get(j).assignPatient(pats.get(i));
-			} catch (DoctorFullException e) {
-				j++;
+		int fullDocs = pats.size() / docs.size();
+		int remainder = pats.size() % docs.size();
+		int fullPats = pats.size() - remainder;
+		System.out.println("fullDocs = " + fullDocs + " remainder = " + remainder + " fullPats = " + fullPats);
+		int i, j = 0;
+		for (i = 0; i < fullDocs; i++) {
+			for (j = 0; j < 3; j++) {
+				try {
+					docs.get(i).assignPatient(pats.get((i * 3) + j));
+				} catch (DoctorFullException e) {
+					e.printStackTrace();
+				}
 			}
+			j = 0;
+		}
+		for (j = fullPats; j < pats.size(); j++) {
+			try {
+				docs.get(i).assignPatient(pats.get(j));
+			} catch (DoctorFullException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

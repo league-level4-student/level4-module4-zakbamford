@@ -96,6 +96,7 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void test8Patients() throws Exception {
+		System.out.println("starting 8 patients");
 		// TODO: add 3 doctors to hospital
 		for (int i = 0; i < 3; i++)
 			testHospital.addDoctor(new Doctor());
